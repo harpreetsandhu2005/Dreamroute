@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+
+    <link rel="stylesheet" href="flight-from.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <form action="database/flight.php" method="POST">
+
+            <h2 style="font-size: 20px;">Book Your flight </h2>
+
+            <!-- Full Name -->
+            <input type="text" name="full_name" placeholder="Full Name" required minlength="2" maxlength="60" pattern="[A-Za-z ]+" title="Name must contain only letters">
+
+            <!-- Email + Phone -->
+            <div>
+                <input type="email" name="email" placeholder="Email" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Enter a valid email address">
+                <input type="tel" name="phone" placeholder="Phone Number" required pattern="[6-9][0-9]{9}" title="Enter valid 10-digit Indian phone number">
+            </div>
+
+            <!-- Address -->
+            <p style="font-size: 10px; color: rgb(138, 122, 0); ">&nbsp;&nbsp;&nbsp; From This Airport </p>
+            <input type="text" name="address" placeholder="From This Airport" required minlength="3" title="Enter departure airport name">
+
+            <!-- City + State -->
+            <div>
+                <input type="text" name="city" placeholder="City" required pattern="[A-Za-z ]+" title="City must contain only letters">
+                <input type="text" name="state" placeholder="State" required pattern="[A-Za-z ]+" title="State must contain only letters">
+            </div>
+
+            <!-- Pincode + Country -->
+            <div>
+                <input type="number" name="pincode" placeholder="Pin Code" required min="100000" max="999999" title="Enter valid 6-digit pincode">
+                <input type="text" name="country" placeholder="Country" required pattern="[A-Za-z ]+" title="Country must contain only letters">
+            </div>
+
+
+            <!-- Address -->
+            <p style="font-size: 10px; color: rgb(4, 66, 142); ">&nbsp;&nbsp;&nbsp; To This Destination Airport </p>
+            <input type="text" name="address1" placeholder="Destination Airport" required minlength="3" title="Enter destination airport name">
+
+            <div>
+                <input type="text" name="city1" placeholder="City" required pattern="[A-Za-z ]+" title="City must contain only letters">
+                <input type="text" name="state1" placeholder="State" required pattern="[A-Za-z ]+" title="State must contain only letters">
+            </div>
+
+            <!-- Pincode + Country -->
+            <div>
+                <input type="number" name="pincode1" placeholder="Pin Code" required min="100000" max="999999" title="Enter valid 6-digit pincode">
+                <input type="text" name="country1" placeholder="Country" required pattern="[A-Za-z ]+" title="Country must contain only letters">
+            </div>
+
+            <!-- Dates -->
+            <div class="date1">
+                <div class="date-box">
+                    <p style="font-size: 10px; color: rgb(252, 0, 0); ">&nbsp;&nbsp;&nbsp; Pickup Date</p>
+                    <input type="date" name="check_in" required>
+                </div>
+            </div>
+                <div class="date">
+                    <select name="flight_type">
+                        <option value="Flight">Flight</option>
+                        <option value="Commercial flight">Commercial flight</option>
+                        <option value="Economics class">Economics class</option>
+                        <option value="Business class">Business class</option>
+                        <option value="Private flight">Private flight</option>
+                       </select>
+                
+            </div>
+            
+
+            <!-- Payment Method -->
+            <p style="font-size: 12px; color: rgb(252, 0, 0);">&nbsp;&nbsp;&nbsp; Select Payment Method</p>
+            <div class="date payment-options">
+                <label><input type="radio" name="payment_method" value="Credit Card" data-href="credit.html"> Credit Card</label>
+                <label><input type="radio" name="payment_method" value="Debit Card" data-href="debit.html"> Debit Card</label>
+                <label><input type="radio" name="payment_method" value="UPI" data-href="upi.html"> UPI</label>
+            </div>
+
+        </form>
+
+    </div>
+
+<script>
+    document.querySelectorAll('input[name="payment_method"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            window.location.href = this.dataset.href;
+        });
+    });
+</script>
+<script src="validation.js"></script>
+</body>
+
+</html>

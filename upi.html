@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>credit| My Project</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Welcome</h2>
+            <p>Please scan the QR code with your UPI app to make a payment.</p>
+        </div>
+
+        <form id="upi-form" class="login-form" action="success.html">
+
+            <div class="input-group">
+                <label>name</label>
+                <input type="text" name="name" placeholder="Enter your name" required title="Enter your full name">
+            </div>
+
+            <div class="input-group">
+                <label>UPI ID</label>
+                <a href="#"><img src="images/upi.png" alt="logo" style="height: 200px; width: 200px; "></a>
+            </div>
+
+            <button type="submit" class="login-btn">Make Payment</button>
+
+            <p class="signup-text">Don't have an account? <a href="register.html">Sign up</a></p>
+            <br>
+            <a href="index.html" class="back"> back to home </a>
+
+        </form>
+    </div>
+
+<script src="validation.js"></script>
+</body>
+
+</html>

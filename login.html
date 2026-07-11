@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | My Project</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Welcome</h2>
+            <p>Please enter your details to sign in.</p>
+        </div>
+
+        <form action="database/ulogin.php" method="POST" class="login-form">
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter your email" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Enter a valid email address">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter your password" required minlength="6" title="Password must be at least 6 characters">
+            </div>
+
+            <button type="submit" class="login-btn">Sign In</button>
+
+            <p class="signup-text">Don't have an account? <a href="register.html">Sign up</a></p>
+            <br>
+            <a href="index.html" class="back"> back to home </a>
+
+        </form>
+    </div>
+
+<script src="validation.js"></script>
+</body>
+
+</html>

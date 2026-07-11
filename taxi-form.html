@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+
+    <link rel="stylesheet" href="taxi-form.css">
+    <style></style>
+</head>
+
+<body>
+    <div class="form-container">
+        <form action="database/taxi .php" method="POST">
+
+            <h2 style="font-size: 20px;">Book Your Taxi </h2>
+
+            <!-- Full Name -->
+            <input type="text" name="full_name" placeholder="Full Name" required minlength="2" maxlength="60" pattern="[A-Za-z ]+" title="Name must contain only letters">
+
+            <!-- Email + Phone -->
+            <div>
+                <input type="email" name="email" placeholder="Email" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Enter a valid email address">
+                <input type="tel" name="phone" placeholder="Phone Number" required pattern="[6-9][0-9]{9}" title="Enter valid 10-digit Indian phone number">
+            </div>
+
+            <!-- Address -->
+            <p style="font-size: 10px; color: rgb(0, 92, 252); ">&nbsp;&nbsp;&nbsp; Address </p>
+            <input type="text" name="address" placeholder="Address" required minlength="5" title="Enter your full address">
+
+            <!-- City + State -->
+            <div>
+                <input type="text" name="city" placeholder="City" required pattern="[A-Za-z ]+" title="City must contain only letters">
+                <input type="text" name="state" placeholder="State" required pattern="[A-Za-z ]+" title="State must contain only letters">
+            </div>
+
+            <!-- Pincode + Country -->
+            <div>
+                <input type="number" name="pincode" placeholder="Pin Code" required min="100000" max="999999" title="Enter valid 6-digit pincode">
+                <input type="text" name="country" placeholder="Country" required pattern="[A-Za-z ]+" title="Country must contain only letters">
+            </div>
+
+
+            <!-- Address -->
+            <p style="font-size: 10px; color: rgb(0, 92, 252); ">&nbsp;&nbsp;&nbsp; Destination </p>
+            <input type="text" name="address1" placeholder="Destination" required minlength="3" title="Enter destination">
+
+            <div class="date">
+                <select name="car">
+                    <option value="4 Seater">4 Seater</option>
+                    <option value="2 Seater">2 Seater</option>
+                    <option value="9 Seater">9 Seater</option>
+                    <option value="Pickup Truck">Pickup Truck</option>
+                    <option value="Bus">Bus</option>
+                </select>
+            </div>
+
+            <!-- Dates -->
+            <div class="date1">
+                <div class="date-box">
+                    <p style="font-size: 10px; color: rgb(252, 0, 0); ">&nbsp;&nbsp;&nbsp; Pickup Date</p>
+                    <input type="date" name="check_in" required>
+                </div>
+
+                <div class="date-box">
+                    <p style="font-size: 10px; color: rgb(252, 0, 0); "> &nbsp;&nbsp;&nbsp; Dropout Date</p>
+                    <input type="date" name="check_out" required>
+                </div>
+            </div>
+
+            <!-- Payment Method -->
+            <p style="font-size: 12px; color: rgb(252, 0, 0);">&nbsp;&nbsp;&nbsp; Select Payment Method</p>
+            <div class="date payment-options">
+                <label><input type="radio" name="payment_method" value="Credit Card" data-href="credit.html"> Credit Card</label>
+                <label><input type="radio" name="payment_method" value="Debit Card" data-href="debit.html"> Debit Card</label>
+                <label><input type="radio" name="payment_method" value="UPI" data-href="upi.html"> UPI</label>
+            </div>
+
+        </form>
+
+    </div>
+<script>
+    document.querySelectorAll('input[name="payment_method"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            window.location.href = this.dataset.href;
+        });
+    });
+</script>
+<script src="validation.js"></script>
+</body>
+
+</html>

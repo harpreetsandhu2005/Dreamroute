@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>credit| My Project</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Welcome</h2>
+            <p>Please enter your details for credit card authentication.</p>
+        </div>
+
+        <form id="credit-form" class="login-form" action="success.html">
+
+            <div class="input-group">
+                <label>Card Number</label>
+                <input type="text" name="card_number" placeholder="Enter your card number" required minlength="16" maxlength="16" title="Enter a valid 16-digit card number">
+            </div>
+
+            <div class="input-group">
+                <label>Expiry Date</label>
+                <input type="text" name="expiry_date" placeholder="MM/YY" required pattern="\d{2}/\d{2}" title="Enter a valid expiry date (MM/YY)">
+            </div>
+
+            <div class="input-group">
+                <label>Cardholder Name</label>
+                <input type="text" name="cardholder_name" placeholder="Enter your full name" required title="Enter your full name as it appears on the card">
+            </div>
+
+             <div class="input-group">
+                <label>CVV</label>
+                <input type="text" name="cvv" placeholder="Enter your CVV" required minlength="3" maxlength="4" title="Enter a valid 3 or 4-digit CVV">
+            </div>
+            <div class="input-group">
+                <label>OTP/PIN (Authentication)</label>
+                <input type="text" name="otp_pin" placeholder="Enter your OTP/PIN" required minlength="6" maxlength="6" title="Enter a valid 6-digit OTP/PIN">
+            </div>
+             <div class="input-group">
+                <label>Amount</label>
+                <input type="text" name="amount" placeholder="Enter amount" required pattern="\d+(\.\d{2})?" title="Enter a valid amount">
+            </div>
+                <button type="submit" class="login-btn">Make Payment</button>
+
+            <p class="signup-text">Don't have an account? <a href="register.html">Sign up</a></p>
+            <br>
+            <a href="index.html" class="back"> back to home </a>
+
+        </form>
+    </div>
+
+<script src="validation.js"></script>
+</body>
+
+</html>

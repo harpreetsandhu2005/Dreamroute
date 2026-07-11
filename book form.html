@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+
+    <link rel="stylesheet" href="book form.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <form action="database/booking.php" method="POST">
+
+            <h2 style="font-size: 20px;">Book Your Trip</h2>
+
+            <!-- Full Name -->
+            <input type="text" name="full_name" placeholder="Full Name" required minlength="2" maxlength="60" pattern="[A-Za-z ]+" title="Name must contain only letters">
+
+            <!-- Email + Phone -->
+            <div>
+                <input type="email" name="email" placeholder="Email" required pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Enter a valid email address">
+                <input type="tel" name="phone" placeholder="Phone Number" required pattern="[6-9][0-9]{9}" title="Enter valid 10-digit Indian phone number">
+            </div>
+
+            <!-- Address -->
+            <input type="text" name="address" placeholder="Address" required minlength="5" title="Enter your full address">
+
+            <!-- City + State -->
+            <div>
+                <input type="text" name="city" placeholder="City" required pattern="[A-Za-z ]+" title="City must contain only letters">
+                <input type="text" name="state" placeholder="State" required pattern="[A-Za-z ]+" title="State must contain only letters">
+            </div>
+
+            <!-- Pincode + Country -->
+            <div>
+                <input type="number" name="pincode" placeholder="Pin Code" required min="100000" max="999999" title="Enter valid 6-digit pincode">
+                <input type="text" name="country" placeholder="Country" required pattern="[A-Za-z ]+" title="Country must contain only letters">
+            </div>
+
+            <!-- Dates -->
+            <div class="date1">
+                <div class="date-box">
+                    <p style="font-size: 10px; color: rgb(252, 0, 0); " >&nbsp;&nbsp;&nbsp; Check-in Date</p>
+                    <input type="date" name="check_in" required>
+                </div>
+
+                <div class="date-box">
+                    <p style="font-size: 10px; color: rgb(252, 0, 0); " > &nbsp;&nbsp;&nbsp; Check-out Date</p>
+                    <input type="date" name="check_out" required>
+                </div>
+            </div>
+
+            <!-- Persons + Male -->
+
+            <div class="date">
+                <select name="tour_location">
+                    <option value="select the place">select the place</option>
+                    <option value="Japan">Japan</option>
+                    <option value="France">France</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="Hawai">Hawai</option>
+                    <option value="Rajasthan A">Rajasthan A</option>
+                    <option value="Kashmir">Kashmir</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Ladakh">Ladakh</option>
+                    <option value="Rajasthan B">Rajasthan B</option>
+                    <option value="Agra">Agra</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Uttar-pardesh">Uttar-pardesh</option>
+                    <option value="Somnath temple">Somnath temple</option>
+                    <option value="Anandpur sahib">Anandpur sahib</option>
+                    <option value="Amritsar">Amritsar</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Rishikesh">Rishikesh</option>
+                    <option value="Himachal pardesh">Himachal pardesh</option>
+                    <option value="Jalandhar">Jalandhar</option>
+                    <option value="Shilong">Shilong</option>
+                    <option value="Haryana">Haryana</option>
+
+                </select>
+            </div>
+
+            <div class="date">
+                <input type="number" name="persons" placeholder="Total Persons" required min="1" max="20" title="Enter number of persons (1-20)">
+
+                <select name="male">
+                    <option value="0">Male</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <!-- Female -->
+            <div class="date">
+                <select name="female">
+                    <option value="0">Female</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <!-- Kids -->
+            <div class="date">
+                <select name="kids">
+                    <option value="0">Kids</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <p style="font-size: 10px; color: rgb(252, 0, 0); "> &nbsp;&nbsp;&nbsp; Select the Room Type</p>
+
+            <!-- Room Type -->
+            <div class="date">
+                <select name="room_type">
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Suite">Suite</option>
+                    <option value="Family">Family</option>
+                </select>
+            </div>
+
+                    <!-- Payment Method -->
+            <p style="font-size: 12px; color: rgb(252, 0, 0);">&nbsp;&nbsp;&nbsp; Select Payment Method</p>
+            <div class="date payment-options">
+                <label><input type="radio" name="payment_method" value="Credit Card" data-href="credit.html"> Credit Card</label>
+                <label><input type="radio" name="payment_method" value="Debit Card" data-href="debit.html"> Debit Card</label>
+                <label><input type="radio" name="payment_method" value="UPI" data-href="upi.html"> UPI</label>
+            </div>
+
+
+            <button type="submit">Book Now</button>
+
+        </form>
+
+    </div>
+<script>
+    document.querySelectorAll('input[name="payment_method"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            window.location.href = this.dataset.href;
+        });
+    });
+</script>
+<script src="validation.js"></script>
+</body>
+
+</html>
